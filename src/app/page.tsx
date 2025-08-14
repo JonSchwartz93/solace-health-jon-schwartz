@@ -9,6 +9,7 @@ export default function Home() {
   const [advocates, setAdvocates] = useState<Advocate[]>([]);
   const [filteredAdvocates, setFilteredAdvocates] = useState<Advocate[]>([]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     console.log("fetching advocates...");
@@ -16,6 +17,7 @@ export default function Home() {
       response.json().then((jsonResponse) => {
         setAdvocates(jsonResponse.data);
         setFilteredAdvocates(jsonResponse.data);
+        setLoading(false);
       });
     });
   }, []);
