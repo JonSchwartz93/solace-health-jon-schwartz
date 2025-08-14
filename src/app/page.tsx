@@ -1,17 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-type Advocate = {
-  id: string | number;
-  firstName: string;
-  lastName: string;
-  city: string;
-  degree: string;
-  specialties: string[];
-  yearsOfExperience: string;
-  phoneNumber: string;
-};
+import { Advocate } from "./types";
 
 export default function Home() {
   const [advocates, setAdvocates] = useState<Advocate[]>([]);
