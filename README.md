@@ -1,5 +1,15 @@
 ## Solace Candidate Assignment
 
+# Release Notes
+- [PR #1](https://github.com/JonSchwartz93/solace-health-jon-schwartz/pull/1)
+  - Resolve console errors/bugs
+  - Update search input to use React state
+- [PR #2](https://github.com/JonSchwartz93/solace-health-jon-schwartz/pull/2)
+  - Debounce search input every 300ms to avoid requesting advocates every keystroke
+  - Update UI/layout of table using TailwindCSS
+
+<img width="1000" height="980" alt="Screenshot 2025-08-14 at 4 02 19 PM" src="https://github.com/user-attachments/assets/727a2f67-5cce-4a3c-956b-0e7f3006b1be" />
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
