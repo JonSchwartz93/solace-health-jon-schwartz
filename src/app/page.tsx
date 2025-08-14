@@ -80,16 +80,18 @@ export default function Home() {
           </tr>
         </thead>
         <tbody>
-          {filteredAdvocates.map((advocate) => {
+          {filteredAdvocates.map((advocate, index) => {
             return (
-              <tr>
+              <tr key={index}>
                 <td>{advocate.firstName}</td>
                 <td>{advocate.lastName}</td>
                 <td>{advocate.city}</td>
                 <td>{advocate.degree}</td>
-                <td>
+                <td key={advocate.id}>
                   {advocate.specialties.map((s) => (
-                    <div>{s}</div>
+                    <div key={Math.random()}>
+                      {s}
+                    </div>
                   ))}
                 </td>
                 <td>{advocate.yearsOfExperience}</td>
