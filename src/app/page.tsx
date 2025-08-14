@@ -35,13 +35,15 @@ export default function Home() {
     console.log("filtering advocates...");
 
     const filteredAdvocates = advocates.filter((advocate) => {
+      const term = searchTerm.toLowerCase();
+
       return (
-        advocate.firstName.includes(searchTerm) ||
-        advocate.lastName.includes(searchTerm) ||
-        advocate.city.includes(searchTerm) ||
-        advocate.degree.includes(searchTerm) ||
-        advocate.specialties.includes(searchTerm) ||
-        String(advocate.yearsOfExperience).includes(searchTerm)
+        advocate.firstName.toLowerCase().includes(term) ||
+        advocate.lastName.toLowerCase().includes(term) ||
+        advocate.city.toLowerCase().includes(term) ||
+        advocate.degree.toLowerCase().includes(term) ||
+        advocate.specialties.some((s) => s.toLowerCase().includes(term)) ||
+        advocate.yearsOfExperience.toString().includes(term)
       );
     });
 
