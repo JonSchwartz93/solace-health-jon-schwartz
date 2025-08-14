@@ -22,16 +22,12 @@ export default function Home() {
       });
   }, []);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchTerm = e.target.value;
-    setInput(searchTerm);
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      const term = input.toLowerCase();
+      console.log("filtering advocates...");
 
-    console.log("filtering advocates...");
-
-    const filteredAdvocates = advocates.filter((advocate) => {
-      const term = searchTerm.toLowerCase();
-
-      return (
+      const filtered = advocates.filter((advocate) =>
         advocate.firstName.toLowerCase().includes(term) ||
         advocate.lastName.toLowerCase().includes(term) ||
         advocate.city.toLowerCase().includes(term) ||
@@ -39,25 +35,36 @@ export default function Home() {
         advocate.specialties.some((s) => s.toLowerCase().includes(term)) ||
         advocate.yearsOfExperience.toString().includes(term)
       );
-    });
 
-    setFilteredAdvocates(filteredAdvocates);
+      setFilteredAdvocates(filtered);
+    }, 300);
+
+    return () => clearTimeout(handler);
+  }, [input, advocates]);
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
   };
 
-  const onClick = () => {
+  const resetSearchInput = () => {
     setFilteredAdvocates(advocates);
     setInput("");
   };
 
   return (
-    <main style={{ margin: "24px" }}>
-      <h1>Solace Advocates</h1>
-      <br />
-      <br />
-      <Search input={input} onChange={onChange} onClick={onClick} />
-      <br />
-      <br />
-      <AdvocateTable advocates={filteredAdvocates} />
+    <main className="m-6">
+      <div className="flex items-center gap-4">
+        <img
+          src="/solace_health_logo.png"
+          alt="Solace Health Logo"
+          className="object-contain h-24"
+        />
+        <div className="flex-1">
+          <Search input={input} onChange={onChange} onClick={resetSearchInput} />
+        </div>
+      </div>
+      <div className="my-4" />
+      <AdvocateTable advocates={filteredAdvocates} loading={loading} />
     </main>
   );
 }

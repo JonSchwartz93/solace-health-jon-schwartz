@@ -11,7 +11,6 @@ export function Search({
 }) {
   return (
     <div className="flex flex-col items-start gap-4 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold text-gray-800">Search</h2>
       <div className="flex items-center gap-2 w-full max-w-md">
         <input
           name="search-input"

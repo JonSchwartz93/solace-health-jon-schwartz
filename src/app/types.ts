@@ -1,5 +1,5 @@
 export type Advocate = {
-  id: string | number;
+  id: number;
   firstName: string;
   lastName: string;
   city: string;
