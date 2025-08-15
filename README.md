@@ -1,4 +1,5 @@
 ## Solace Candidate Assignment
+**Deployed here:** https://solace-health-jon-schwartz-production.up.railway.app/
 
 # Release Notes
 - [PR #1](https://github.com/JonSchwartz93/solace-health-jon-schwartz/pull/1)
