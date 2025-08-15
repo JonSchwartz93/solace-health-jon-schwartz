@@ -1,3 +1,5 @@
+For ease of viewing, I've deployed the project (and setup a Postgres DB) using Railway: https://solace-health-jon-schwartz-production.up.railway.app/
+
 # Discussion/future changes:
 ### UI/UX + performance improvements:
 - Assuming that we have a database of hundreds of thousands of advocates, one improvement I'd like to make is implementing a paginated experience. UI-wise, this might include a `<Prev`/[page #]/`Next>` style pagination or we could fetch additional advocates as the user scrolls.
@@ -12,3 +14,4 @@
 - Add component test coverage with React Testing Library
 - Leverage ReactQuery for improved data fetching/caching/error handling
 ‍
+
